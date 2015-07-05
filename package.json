@@ -2,7 +2,7 @@
   "name": "battery-status",
   "main": "./lib/main",
   "author": "Jonas Auer <jonas.auer.94@gmail.com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Displays your laptop's battery status in the status bar of Atom.",
   "keywords": [],
   "repository": "https://github.com/cmd-johnson/atom-battery-status",
