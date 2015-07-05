@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "description": "Displays your laptop's battery status in the status bar of Atom.",
   "keywords": [],
-  "repository": "https://github.com/atom/battery-status",
+  "repository": "https://github.com/cmd-johnson/atom-battery-status",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
