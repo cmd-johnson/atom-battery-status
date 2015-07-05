@@ -1,8 +1,9 @@
 {
   "name": "battery-status",
   "main": "./lib/main",
+  "author": "Jonas Auer <jonas.auer.94@gmail.com",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Displays your laptop's battery status in the status bar of Atom.",
   "keywords": [],
   "repository": "https://github.com/atom/battery-status",
   "license": "MIT",
