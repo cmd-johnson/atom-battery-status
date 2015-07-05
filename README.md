@@ -1,7 +1,7 @@
-# battery-status
+# Battery Status
 Mostly working in full-screen mode on my laptop, I sometimes loose track of the
-power level, so I created this little package to display the power level along
-the charge-status in the status bar of Atom.
+power level of the battery, so I created this little package to display the
+charge of the battery, as well as the charge-status in the status bar of Atom.
 
 ## Features
 Displays the power level in percent, along the info if the battery is charging
