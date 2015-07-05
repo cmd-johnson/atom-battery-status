@@ -1,0 +1,5 @@
+.battery-status .warning {
+  color: #ff9800 !important; }
+
+.battery-status .critical {
+  color: #f44336 !important; }
