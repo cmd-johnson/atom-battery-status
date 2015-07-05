@@ -28,8 +28,6 @@ class BatteryStatusView extends HTMLDivElement
 
   updateStatusText: ->
     battery.percentages (percentages) =>
-      percentages[0] = 3
-
       battery.isCharging (charging) =>
         @statusText.textContent = percentages[0] + '%, '
         if charging[0] == 0
