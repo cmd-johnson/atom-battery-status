@@ -1,18 +1,19 @@
 battery = require 'node-battery'
 
-# style classes set when percentage drops below warning threshold
-warningClasses = ['warning']
-# style classes set when percentage drops below critical threshold
-criticalClasses = ['critical', 'icon', 'icon-issue-opened']
-
 # View to show the battery status in the status bar
 class BatteryStatusView extends HTMLDivElement
   initialize: (@statusBar) ->
     @classList.add('battery-status', 'inline-block')
-    @statusText = document.createElement('span')
-    @statusText.classList.add('inline-block')
-    @statusText.textContent = 'initializing battery status...'
-    @appendChild(@statusText)
+
+    @statusIcon = document.createElement 'div'
+    @statusIcon.classList.add 'inline-block', 'battery-icon', 'unknown'
+    @appendChild @statusIcon
+
+    @statusText = document.createElement 'span'
+    @statusText.classList.add 'inline-block'
+    @appendChild @statusText
+
+    @updateStatus()
     @update()
 
   attach: ->
@@ -23,34 +24,42 @@ class BatteryStatusView extends HTMLDivElement
 
   update: ->
     setInterval =>
-        @updateStatusText()
-      , 5000
+        @updateStatus()
+      , 1000
 
-  updateStatusText: ->
+  updateStatus: ->
     battery.percentages (percentages) =>
       battery.isCharging (charging) =>
-        @statusText.textContent = percentages[0] + '%, '
-        if charging[0] == 0
-          @statusText.textContent += 'discharging'
-        else
-          @statusText.textContent += 'charging'
+        @updateStatusText percentages
+        @updateStatusIcon percentages, charging
       , 0
-
-      @removeStyleClasses(warningClasses)
-      @removeStyleClasses(criticalClasses)
-
-      if percentages[0] <= 5
-        @addStyleClasses(criticalClasses)
-      else if percentages[0] <= 10
-        @addStyleClasses(warningClasses)
     , 0
 
-  removeStyleClasses: (classes) ->
-    for c in classes
-      @statusText.classList.remove(c)
+  updateStatusText: (percentages) ->
+    if percentages? && percentages[0]
+      @statusText.textContent = percentages[0] + '%'
 
-  addStyleClasses: (classes) ->
-    for c in classes
-      @statusText.classList.add(c)
+  updateStatusIcon: (percentages, charging) ->
+    @statusIcon.className = "";
+    @statusIcon.classList.add 'inline-block', 'battery-icon'
+
+    if charging?
+      if charging[0] == 1
+        @statusIcon.classList.add 'charging'
+      else if charging[0] == 0
+        @statusIcon.classList.add 'discharging'
+      else
+        @statusIcon.classList.add 'unknown'
+        console.log 'unknown charge status: ' + charging[0]
+
+    if percentages? && percentages[0]?
+      charge = percentages[0]
+      if charge <= 5
+        @statusIcon.classList.add 'critical'
+      else
+        for step in [10..100] by 10
+          if charge <= step
+            @statusIcon.classList.add 'p' + step
+            break
 
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
