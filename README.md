@@ -1,5 +1,5 @@
 # Battery Status
-Mostly working in full-screen mode on my laptop, I sometimes loose track of the
+Mostly working in full-screen mode on my laptop, I sometimes lose track of the
 power level of the battery, so I created this little package to display the
 charge of the battery, as well as the charge-status in the status bar of Atom.
 
@@ -28,3 +28,8 @@ let me know!
 
 If you'd like to have some configuration options, just drop a feature request
 and I'll look into it.
+
+## License
+The package itself is licensed under the MIT license, the icons used are taken
+from the [material-design-icons](https://github.com/google/material-design-icons)
+and licensed under CC-BY-4.0.
