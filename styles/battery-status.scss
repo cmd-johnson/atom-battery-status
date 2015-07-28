@@ -19,7 +19,7 @@ $critical: #d50000;
     }
     &.charging {
       &.critical {
-        -webkit-mask-image: url(./images/ic_battery_charging_20_18px.svg);
+        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
         background-color: $warning;
       }
       &.p10 {
