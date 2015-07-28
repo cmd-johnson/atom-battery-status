@@ -1,35 +1,19 @@
 # Battery Status
-Mostly working in full-screen mode on my laptop, I sometimes lose track of the
-power level of the battery, so I created this little package to display the
-charge of the battery, as well as the charge-status in the status bar of Atom.
+Displays the current power level of the battery in Atom's status bar, and
+indicates if the battery is currently charging. Especially useful if you often
+work in full-screen mode on your laptop!
 
-## Features
-Displays the power level in percent, along the info if the battery is charging
-or discharging. If the power level drops below 10%, the text turns orange, if it
-drops below 5%, it turns red.
-
-Very basic, but does the job.
-
-## Screenshots!
-### Standard
-![How the battery status gets displayed when > 10%](http://cmd-johnson.github.io/img/projects/atom-battery-status/normal.png)
-
-### Warning
-![How the battery status gets displayed when <= 10% && > 5%](http://cmd-johnson.github.io/img/projects/atom-battery-status/warning.png)
-
-### Critical
-![How the battery status gets displayed when <= 5%](http://cmd-johnson.github.io/img/projects/atom-battery-status/critical.png)
+![How a battery cycle looks like in Atom's status bar when using this package](https://github.com/cmd-johnson/atom-battery-status/raw/master/preview.png)
 
 ## Known issues
 Since I'm using the [node-battery](https://github.com/leon-vv/node-battery/)
 module here, this package cannot display the battery status on operating
 systems other than linux or osx. If you have any ideas on how to fix this,
-let me know!
+contact the owner of that package or tell me if there's a package that already
+works everywhere that I didn't find!
 
 If you'd like to have some configuration options, just drop a feature request
 and I'll look into it.
 
 ## License
-The package itself is licensed under the MIT license, the icons used are taken
-from the [material-design-icons](https://github.com/google/material-design-icons)
-and licensed under CC-BY-4.0.
+This package is MIT-licensed, see the [license-file](https://github.com/cmd-johnson/atom-battery-status/blob/master/LICENSE.md) for third party licenses.
