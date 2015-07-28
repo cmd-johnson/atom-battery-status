@@ -1,1 +1,51 @@
-.battery-status>.battery-icon{background-repeat:no-repeat;background-color:#8bc34a;display:inline-block;width:18px;height:18px;margin:2px 0px;-webkit-mask-image:url(atom://battery-status/images/ic_battery_unknown_18px.svg)}.battery-status>.battery-icon.unknown{background-color:#0277bd;-webkit-mask-image:url(atom://battery-status/images/ic_battery_unknown_18px.svg)}.battery-status>.battery-icon.charging.critical{-webkit-mask-image:url(./images/ic_battery_charging_20_18px.svg);background-color:#ff9800}.battery-status>.battery-icon.charging.p10{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_20_18px.svg);background-color:#ff9800}.battery-status>.battery-icon.charging.p20{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_20_18px.svg)}.battery-status>.battery-icon.charging.p30,.battery-status>.battery-icon.charging.p40{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_30_18px.svg)}.battery-status>.battery-icon.charging.p50{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_50_18px.svg)}.battery-status>.battery-icon.charging.p60,.battery-status>.battery-icon.charging.p70{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_60_18px.svg)}.battery-status>.battery-icon.charging.p80{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_80_18px.svg)}.battery-status>.battery-icon.charging.p90{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_90_18px.svg)}.battery-status>.battery-icon.charging.p100{-webkit-mask-image:url(atom://battery-status/images/ic_battery_charging_full_18px.svg)}.battery-status>.battery-icon.discharging.critical{-webkit-mask-image:url(atom://battery-status/images/ic_battery_alert_18px.svg);background-color:#d50000}.battery-status>.battery-icon.discharging.p10{-webkit-mask-image:url(atom://battery-status/images/ic_battery_20_18px.svg);background-color:#ff9800}.battery-status>.battery-icon.discharging.p20{-webkit-mask-image:url(atom://battery-status/images/ic_battery_20_18px.svg)}.battery-status>.battery-icon.discharging.p30,.battery-status>.battery-icon.discharging.p40{-webkit-mask-image:url(atom://battery-status/images/ic_battery_30_18px.svg)}.battery-status>.battery-icon.discharging.p50{-webkit-mask-image:url(atom://battery-status/images/ic_battery_50_18px.svg)}.battery-status>.battery-icon.discharging.p60,.battery-status>.battery-icon.discharging.p70{-webkit-mask-image:url(atom://battery-status/images/ic_battery_60_18px.svg)}.battery-status>.battery-icon.discharging.p80{-webkit-mask-image:url(atom://battery-status/images/ic_battery_80_18px.svg)}.battery-status>.battery-icon.discharging.p90{-webkit-mask-image:url(atom://battery-status/images/ic_battery_90_18px.svg)}.battery-status>.battery-icon.discharging.p100{-webkit-mask-image:url(atom://battery-status/images/ic_battery_full_18px.svg)}
+.battery-status > .battery-icon {
+  background-repeat: no-repeat;
+  background-color: #8bc34a;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0px;
+  -webkit-mask-image: url(atom://battery-status/images/ic_battery_unknown_18px.svg); }
+  .battery-status > .battery-icon.unknown {
+    background-color: #0277bd;
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_unknown_18px.svg); }
+  .battery-status > .battery-icon.charging.critical {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
+    background-color: #ff9800; }
+  .battery-status > .battery-icon.charging.p10 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
+    background-color: #ff9800; }
+  .battery-status > .battery-icon.charging.p20 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg); }
+  .battery-status > .battery-icon.charging.p30, .battery-status > .battery-icon.charging.p40 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_30_18px.svg); }
+  .battery-status > .battery-icon.charging.p50 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_50_18px.svg); }
+  .battery-status > .battery-icon.charging.p60, .battery-status > .battery-icon.charging.p70 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_60_18px.svg); }
+  .battery-status > .battery-icon.charging.p80 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_80_18px.svg); }
+  .battery-status > .battery-icon.charging.p90 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_90_18px.svg); }
+  .battery-status > .battery-icon.charging.p100 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_full_18px.svg); }
+  .battery-status > .battery-icon.discharging.critical {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_alert_18px.svg);
+    background-color: #d50000; }
+  .battery-status > .battery-icon.discharging.p10 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_20_18px.svg);
+    background-color: #ff9800; }
+  .battery-status > .battery-icon.discharging.p20 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_20_18px.svg); }
+  .battery-status > .battery-icon.discharging.p30, .battery-status > .battery-icon.discharging.p40 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_30_18px.svg); }
+  .battery-status > .battery-icon.discharging.p50 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_50_18px.svg); }
+  .battery-status > .battery-icon.discharging.p60, .battery-status > .battery-icon.discharging.p70 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_60_18px.svg); }
+  .battery-status > .battery-icon.discharging.p80 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_80_18px.svg); }
+  .battery-status > .battery-icon.discharging.p90 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_90_18px.svg); }
+  .battery-status > .battery-icon.discharging.p100 {
+    -webkit-mask-image: url(atom://battery-status/images/ic_battery_full_18px.svg); }
