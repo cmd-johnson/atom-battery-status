@@ -16,6 +16,11 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/cmd-johnson/atom-battery-status/issues"
+  },
+  "homepage": "https://github.com/cmd-johnson/atom-battery-status",
   "consumedServices": {
     "status-bar": {
       "versions": {
