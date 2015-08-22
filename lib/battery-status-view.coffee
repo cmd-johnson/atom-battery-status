@@ -1,4 +1,5 @@
-battery = require 'node-battery'
+# battery = require 'node-battery'
+batteryStatus = require 'node-power-info'
 
 # View to show the battery status in the status bar
 class BatteryStatusView extends HTMLDivElement
@@ -33,12 +34,18 @@ class BatteryStatusView extends HTMLDivElement
 
   updateStatus: ->
     # fetch battery percentage and charge status and update the view
-    battery.percentages (percentages) =>
-      battery.isCharging (charging) =>
-        @updateStatusText percentages
-        @updateStatusIcon percentages, charging
-      , 0
-    , 0
+    batteryStatus.getChargeStatus (batteryStats) =>
+      if batteryStats.length >== 1
+        batStats = batteryStats[0]
+        @updateStatusText batStats.powerLevel
+        @updateStatusIcon batStats.powerLevel, batStats.chargeStatus
+
+    # battery.percentages (percentages) =>
+    #   battery.isCharging (charging) =>
+    #     @updateStatusText percentages
+    #     @updateStatusIcon percentages, charging
+    #   , 0
+    # , 0
 
   updateStatusText: (percentages) ->
     if percentages? && percentages[0]

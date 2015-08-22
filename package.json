@@ -29,6 +29,7 @@
     }
   },
   "dependencies": {
-    "node-battery": "^0.2.2"
+    "node-battery": "^0.2.2",
+    "node-power-info": "^0.1.1"
   }
 }
