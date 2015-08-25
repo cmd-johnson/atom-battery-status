@@ -4,3 +4,7 @@
 
 ## 0.9.0 - Icons!
 * Removed the status text and replaced it with icons
+
+## 0.10.0 - New backend
+* Backed by a different library
+* Fixed compatibility issues
