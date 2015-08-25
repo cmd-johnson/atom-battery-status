@@ -9,7 +9,7 @@
     "status",
     "laptop",
     "charge",
-    "percentage"
+    "power"
   ],
   "repository": "https://github.com/cmd-johnson/atom-battery-status",
   "license": "MIT",
