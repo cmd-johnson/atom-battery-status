@@ -29,7 +29,7 @@ class BatteryStatusView extends HTMLDivElement
   update: ->
     setInterval =>
         @updateStatus()
-      , 1000
+      , 60000
 
   updateStatus: ->
     # fetch battery percentage and charge status and update the view
