@@ -57,6 +57,8 @@ class BatteryStatusView extends HTMLDivElement
         @statusIcon.classList.add 'charging'
       else if chargeStatus == 'discharging'
         @statusIcon.classList.add 'discharging'
+      else if chargeStatus == 'full'
+        @statusIcon.classList.add 'full'
       else
         @statusIcon.classList.add 'unknown'
         if chargeStatus != 'unknown'
