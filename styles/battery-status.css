@@ -27,7 +27,7 @@
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_80_18px.svg); }
   .battery-status > .battery-icon.charging.p90 {
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_90_18px.svg); }
-  .battery-status > .battery-icon.charging.p100 {
+  .battery-status > .battery-icon.charging.p100, .battery-status > .battery-icon.charging.full {
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_full_18px.svg); }
   .battery-status > .battery-icon.discharging.critical {
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_alert_18px.svg);
@@ -47,5 +47,5 @@
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_80_18px.svg); }
   .battery-status > .battery-icon.discharging.p90 {
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_90_18px.svg); }
-  .battery-status > .battery-icon.discharging.p100 {
+  .battery-status > .battery-icon.discharging.p100, .battery-status > .battery-icon.discharging.full {
     -webkit-mask-image: url(atom://battery-status/images/ic_battery_full_18px.svg); }
