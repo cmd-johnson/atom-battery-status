@@ -8,3 +8,7 @@
 ## 0.10.0 - New backend
 * Backed by a different library
 * Fixed compatibility issues
+
+## 0.10.2 - Increased polling delay
+* Increased polling delay from 1 second to 1 minute
+* fixed a bug where the 'full' battery status wasn't recognized properly
