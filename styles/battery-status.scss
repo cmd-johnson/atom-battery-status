@@ -44,7 +44,7 @@ $critical: #d50000;
       &.p90 {
         -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_90_18px.svg);
       }
-      &.p100 {
+      &.p100, &.full {
         -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_full_18px.svg);
       }
     }
@@ -75,7 +75,7 @@ $critical: #d50000;
       &.p90 {
         -webkit-mask-image: url(atom://battery-status/images/ic_battery_90_18px.svg);
       }
-      &.p100 {
+      &.p100, &.full {
         -webkit-mask-image: url(atom://battery-status/images/ic_battery_full_18px.svg);
       }
     }
