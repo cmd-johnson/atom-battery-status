@@ -11,4 +11,7 @@
 
 ## 0.10.2 - Increased polling delay
 * Increased polling delay from 1 second to 1 minute
-* fixed a bug where the 'full' battery status wasn't recognized properly
+* Fixed a bug where the 'full' battery status wasn't recognized properly
+
+## 0.10.3 - CSS fixes
+* Fixed CSS rules for 'full' battery status
