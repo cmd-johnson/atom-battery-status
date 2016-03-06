@@ -51,8 +51,6 @@ class BatteryStatusView extends HTMLDivElement
     batteryStatus.getChargeStatus (batteryStats) =>
       if batteryStats.length >= 1
         batStats = batteryStats[0]
-        batStats.powerLevel = 6
-        batStats.chargeStatus = 'charging'
         @updateStatusText batStats.powerLevel
         @updateStatusIcon batStats.powerLevel, batStats.chargeStatus
 
