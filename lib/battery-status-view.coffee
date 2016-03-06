@@ -59,10 +59,13 @@ class BatteryStatusView extends HTMLDivElement
       # display charge of the first battery in percent (no multi battery support
       # as of now)
       @statusText.textContent = "#{percentage}%"
+    else
+      @statusText.textContent = 'error'
+      console.warn "Battery Status: invalid charge value: #{percentage}"
 
   updateStatusIcon: (percentage, chargeStatus) ->
-    if !(percentage? && chargeStatus?)
-      return
+    if !(chargeStatus?)
+      chargeStatus = 'unknown'
 
     # clear the class list of the status icon element and re-add basic style
     # classes
