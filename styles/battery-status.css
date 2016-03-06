@@ -26,6 +26,8 @@
 
 .battery-status {
   margin-top: -1px !important; }
+  body:not(.fullscreen) .battery-status.hide-outside-fullscreen {
+    display: none !important; }
   .battery-status .back-icon {
     opacity: .5;
     margin-left: 0em; }
