@@ -111,4 +111,10 @@ class BatteryStatusView extends HTMLDivElement
     else
       @statusText.setAttribute 'style', 'display: none;'
 
+  setOnlyShowInFullscreen: (onlyShowInFullscreen) ->
+    if onlyShowInFullscreen
+      @classList.add 'hide-outside-fullscreen'
+    else
+      @classList.remove 'hide-outside-fullscreen'
+
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
