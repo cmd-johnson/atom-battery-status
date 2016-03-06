@@ -1,86 +1,38 @@
-$normal: #8bc34a;
-$warning: #ff9800;
-$unknown: #0277bd;
-$critical: #d50000;
+@import "battery-icons";
+
+$color-green: #8bc34a;
+$color-orange: #ff9800;
+$color-blue: #0277bd;
+$color-red: #d50000;
 
 .battery-status {
-  >.battery-icon {
-    background-repeat: no-repeat;
-    background-color: $normal;
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin: 2px 0px;
-    -webkit-mask-image: url(atom://battery-status/images/ic_battery_unknown_18px.svg);
+  // not very nice, but does the job
+  margin-top: -1px !important;
 
+  .back-icon {
+    opacity: .5;
+    margin-left: 0em;
+  }
+
+  .front-icon {
+    margin-left: -1em;
+  }
+
+  .status {
+    font-size: 14px;
+    display: inline-block;
+
+    &.normal {
+      color: $color-green;
+    }
+    &.warning {
+      color: $color-orange;
+    }
+    &.critical {
+      color: $color-red;
+    }
     &.unknown {
-      background-color: $unknown;
-      -webkit-mask-image: url(atom://battery-status/images/ic_battery_unknown_18px.svg);
-    }
-    &.charging {
-      &.critical {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
-        background-color: $warning;
-      }
-      &.p10 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
-        background-color: $warning;
-      }
-      &.p20 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_20_18px.svg);
-      }
-      &.p30, &.p40 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_30_18px.svg);
-      }
-      &.p50 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_50_18px.svg);
-      }
-      &.p60, &.p70 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_60_18px.svg);
-      }
-      &.p80 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_80_18px.svg);
-      }
-      &.p90 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_90_18px.svg);
-      }
-      &.p100 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_charging_full_18px.svg);
-      }
-    }
-    &.discharging {
-      &.critical {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_alert_18px.svg);
-        background-color: $critical;
-      }
-      &.p10 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_20_18px.svg);
-        background-color: $warning;
-      }
-      &.p20 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_20_18px.svg);
-      }
-      &.p30, &.p40 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_30_18px.svg);
-      }
-      &.p50 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_50_18px.svg);
-      }
-      &.p60, &.p70 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_60_18px.svg);
-      }
-      &.p80 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_80_18px.svg);
-      }
-      &.p90 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_90_18px.svg);
-      }
-      &.p100 {
-        -webkit-mask-image: url(atom://battery-status/images/ic_battery_full_18px.svg);
-      }
-    }
-    &.full {
-      -webkit-mask-image: url(atom://battery-status/images/ic_battery_full_18px.svg);
+      color: $color-blue;
     }
   }
 }

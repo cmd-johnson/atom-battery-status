@@ -7,13 +7,22 @@ class BatteryStatusView extends HTMLDivElement
     @classList.add('battery-status', 'inline-block')
 
     # create the status-icon div
-    @statusIcon = document.createElement 'div'
-    @statusIcon.classList.add 'inline-block', 'battery-icon', 'unknown'
-    @appendChild @statusIcon
+    @statusIconContainer = document.createElement 'div'
+    # @statusIconContainer.classList.add 'inline-block', 'status', 'unknown'
+    @appendChild @statusIconContainer
+
+    # create status-icon spans and put then in the icon container
+    @backIcon = document.createElement 'span'
+    # @backIcon.classList.add 'back-icon', 'icon-battery-unknown'
+    @statusIconContainer.appendChild @backIcon
+
+    @frontIcon = document.createElement 'span'
+    # @frontIcon.classList.add 'front-icon', 'icon-battery-unknown'
+    @statusIconContainer.appendChild @frontIcon
 
     # create the status-text span
     @statusText = document.createElement 'span'
-    @statusText.classList.add 'inline-block'
+    # @statusText.classList.add 'inline-block'
     @appendChild @statusText
 
     # update the view and start the update cycle
@@ -36,6 +45,8 @@ class BatteryStatusView extends HTMLDivElement
     batteryStatus.getChargeStatus (batteryStats) =>
       if batteryStats.length >= 1
         batStats = batteryStats[0]
+        batStats.powerLevel = 6
+        batStats.chargeStatus = 'charging'
         @updateStatusText batStats.powerLevel
         @updateStatusIcon batStats.powerLevel, batStats.chargeStatus
 
@@ -43,37 +54,51 @@ class BatteryStatusView extends HTMLDivElement
     if percentage?
       # display charge of the first battery in percent (no multi battery support
       # as of now)
-      @statusText.textContent = percentage + '%'
+      @statusText.textContent = "#{percentage}%"
 
   updateStatusIcon: (percentage, chargeStatus) ->
+    if !(percentage? && chargeStatus?)
+      return
+
     # clear the class list of the status icon element and re-add basic style
     # classes
-    @statusIcon.className = "";
-    @statusIcon.classList.add 'inline-block', 'battery-icon'
+    @backIcon.className = ''
+    @backIcon.classList.add 'back-icon', 'battery-icon'
+    @frontIcon.classname = ''
+    @frontIcon.classList.add 'front-icon', 'battery-icon'
+    @statusIconContainer.className = 'status'
 
     # add style classes according to charge status
-    if chargeStatus?
-      if chargeStatus == 'charging' || chargeStatus == ''
-        @statusIcon.classList.add 'charging'
-      else if chargeStatus == 'discharging'
-        @statusIcon.classList.add 'discharging'
-      else if chargeStatus == 'full'
-        @statusIcon.classList.add 'full'
-      else
-        @statusIcon.classList.add 'unknown'
-        if chargeStatus != 'unknown'
-          console.log 'unknown charge status: ' + chargeStatus
+    iconClass = 'icon-battery-unknown';
 
-    # add style classes according to the power level of the battery
-    if percentage?
-      if percentage <= 5
-        @statusIcon.classList.add 'critical'
+    if chargeStatus == 'charging' || chargeStatus == 'full'
+      iconClass = 'icon-battery-charging'
+    else if chargeStatus == 'discharging'
+      iconClass = 'icon-battery'
+
+    clip = 'none'
+    statusClass = 'unknown'
+
+    if chargeStatus != 'unknown'
+      if percentage <= 5 && chargeStatus != 'charging'
+        iconClass = 'icon-battery-alert'
+        statusClass = 'critical'
       else
-        # there are style classes for every 10% step (p10 to p100), so set one
-        # of those classes accordingly
-        for step in [10..100] by 10
-          if percentage <= step
-            @statusIcon.classList.add 'p' + step
-            break
+        if percentage <= 10
+          statusClass = 'warning'
+        else
+          statusClass = 'normal'
+
+        clipFull = 23
+        clipEmpty = 86
+        clipTop = clipFull + ((100 - percentage) / 100 * (clipEmpty - clipFull))
+        clip = "inset(#{clipTop}% 0 0 0)"
+
+    @statusIconContainer.classList.add statusClass
+    @backIcon.classList.add iconClass
+    @frontIcon.classList.add iconClass
+
+    # cut the front icon from the top using clip-path
+    @frontIcon.setAttribute('style', "clip-path: #{clip}; -webkit-clip-path: #{clip};")
 
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
