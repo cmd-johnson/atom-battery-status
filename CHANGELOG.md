@@ -15,3 +15,9 @@
 
 ## 0.10.3 - CSS fixes
 * Fixed CSS rules for 'full' battery status
+
+## 0.11.0 - Configuration options!
+* Added option to only show the status item while Atom is run in full-screen mode
+* Added option to show/hide the charge percentage
+* Replaced the different svg icons with an icon font
+* Slightly improved error handling on unrecognized charge percentages and status texts
