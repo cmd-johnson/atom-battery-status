@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'battery-icons';
+  src: url('atom://battery-status/fonts/battery-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.battery-status {
+  [class^="icon-"], [class*=" icon-"] {
+    font-family: 'battery-icons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .icon-battery {
+    &:before {
+      content: "\e902";
+    }
+  }
+  .icon-battery-charging {
+    &:before {
+      content: "\e901";
+    }
+  }
+  .icon-battery-alert {
+    &:before {
+      content: "\e900";
+    }
+  }
+  .icon-battery-unknown {
+    &:before {
+      content: "\e903";
+    }
+  }
+}
