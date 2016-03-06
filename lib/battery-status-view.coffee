@@ -2,6 +2,12 @@ batteryStatus = require 'node-power-info'
 
 # View to show the battery status in the status bar
 class BatteryStatusView extends HTMLDivElement
+  tile: null
+  backIcon: null
+  frontIcon: null
+  statusIconContainer: null
+  statusText: null
+
   initialize: (@statusBar) ->
     # set css classes for the root element
     @classList.add('battery-status', 'inline-block')
@@ -100,5 +106,11 @@ class BatteryStatusView extends HTMLDivElement
 
     # cut the front icon from the top using clip-path
     @frontIcon.setAttribute('style', "clip-path: #{clip}; -webkit-clip-path: #{clip};")
+
+  setShowPercentage: (showPercentage) ->
+    if showPercentage
+      @statusText.removeAttribute 'style'
+    else
+      @statusText.setAttribute 'style', 'display: none;'
 
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
