@@ -21,3 +21,6 @@
 * Added option to show/hide the charge percentage
 * Replaced the different svg icons with an icon font
 * Slightly improved error handling on unrecognized charge percentages and status texts
+
+## 0.11.1 - Fixed battery icon not being updated properly
+* The battery icon should now display correctly after changing from charging to discharging and vice-versa
