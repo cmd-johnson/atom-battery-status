@@ -71,7 +71,7 @@ class BatteryStatusView extends HTMLDivElement
     # classes
     @backIcon.className = ''
     @backIcon.classList.add 'back-icon', 'battery-icon'
-    @frontIcon.classname = ''
+    @frontIcon.className = ''
     @frontIcon.classList.add 'front-icon', 'battery-icon'
     @statusIconContainer.className = 'status'
 
