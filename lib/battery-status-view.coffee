@@ -7,6 +7,7 @@ class BatteryStatusView extends HTMLDivElement
   frontIcon: null
   statusIconContainer: null
   statusText: null
+  pollingInterval: 60000
 
   initialize: (@statusBar) ->
     # set css classes for the root element
@@ -33,7 +34,7 @@ class BatteryStatusView extends HTMLDivElement
 
     # update the view and start the update cycle
     @updateStatus()
-    @update()
+    @startPolling()
 
   attach: ->
     @tile = @statusBar.addRightTile(priority: 0, item: this)
@@ -41,10 +42,13 @@ class BatteryStatusView extends HTMLDivElement
   destroy: ->
     @tile?.destroy()
 
-  update: ->
-    setInterval =>
+  startPolling: ->
+    if @interval
+      clearInterval @interval
+
+    @interval = setInterval =>
         @updateStatus()
-      , 60000
+      , @pollingInterval
 
   updateStatus: ->
     # fetch battery percentage and charge status and update the view
@@ -119,5 +123,11 @@ class BatteryStatusView extends HTMLDivElement
       @classList.add 'hide-outside-fullscreen'
     else
       @classList.remove 'hide-outside-fullscreen'
+
+  setPollingInterval: (pollingInterval) ->
+    if pollingInterval
+      @pollingInterval = 1000 * pollingInterval
+      @startPolling()
+
 
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
