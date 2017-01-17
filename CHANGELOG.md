@@ -24,3 +24,6 @@
 
 ## 0.11.1 - Fixed battery icon not being updated properly
 * The battery icon should now display correctly after changing from charging to discharging and vice-versa
+
+## 0.11.2 - Configurable polling interval
+* Added an option to configure the interval for polling the battery status in seconds
