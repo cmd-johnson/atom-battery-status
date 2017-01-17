@@ -126,6 +126,7 @@ class BatteryStatusView extends HTMLDivElement
 
   setPollingInterval: (pollingInterval) ->
     if pollingInterval
+      pollingInterval = Math.max(pollingInterval, 1)
       @pollingInterval = 1000 * pollingInterval
       @startPolling()
 
