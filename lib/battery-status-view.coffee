@@ -55,14 +55,15 @@ class BatteryStatusView extends HTMLDivElement
     batteryStatus.getChargeStatus (batteryStats) =>
       if batteryStats.length >= 1
         batStats = batteryStats[0]
-        @updateStatusText batStats.powerLevel
+        @updateStatusText batStats.powerLevel, batStats.remaining
         @updateStatusIcon batStats.powerLevel, batStats.chargeStatus
 
-  updateStatusText: (percentage) ->
+  updateStatusText: (percentage, remaining) ->
     if percentage?
       # display charge of the first battery in percent (no multi battery support
       # as of now)
       @statusText.textContent = "#{percentage}%"
+      @statusText.textContent += " (#{remaining})" if remaining?
     else
       @statusText.textContent = 'error'
       console.warn "Battery Status: invalid charge value: #{percentage}"
