@@ -11,13 +11,18 @@ module.exports = BatteryStatus =
       type: 'boolean'
       default: true
       description: 'Display the charge percentage next to the charge icon'
-    onlyShowWhileInFullscreen:
+    showRemainingTime:
       order: 2
+      type: 'boolean'
+      default: true
+      description: 'Display the estimated remaining time until the battery is (dis-)charged (currently only available on macOS)'
+    onlyShowWhileInFullscreen:
+      order: 3
       type: 'boolean'
       default: false
       description: 'Display the status item only while in full-screen mode'
     pollingInterval:
-      order: 3
+      order: 4
       type: 'integer'
       default: 60
       description: 'How many seconds should be waited between updating the battery\'s status'
@@ -37,6 +42,9 @@ module.exports = BatteryStatus =
     @disposables = new CompositeDisposable
     @disposables.add atom.config.observe 'battery-status.showPercentage', (showPercentage) =>
       @batteryStatusView?.setShowPercentage showPercentage
+
+    @disposables.add atom.config.observe 'battery-status.showRemainingTime', (showRemainingTime) =>
+      @batteryStatusView?.setShowRemainingTime showRemainingTime
 
     @disposables.add atom.config.observe 'battery-status.onlyShowWhileInFullscreen', (onlyShowInFullscreen) =>
       @batteryStatusView?.setOnlyShowInFullscreen onlyShowInFullscreen
