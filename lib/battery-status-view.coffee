@@ -7,6 +7,7 @@ class BatteryStatusView extends HTMLDivElement
   frontIcon: null
   statusIconContainer: null
   statusText: null
+  showRemainingTime: true
   pollingInterval: 60000
 
   initialize: (@statusBar) ->
@@ -63,7 +64,9 @@ class BatteryStatusView extends HTMLDivElement
       # display charge of the first battery in percent (no multi battery support
       # as of now)
       @statusText.textContent = "#{percentage}%"
-      @statusText.textContent += " (#{remaining})" if remaining?
+      if @showRemainingTime && remaining? && remaining.hours? && remaining.minutes?
+        minutes = ("0" + remaining.minutes).substr(-2)
+        @statusText.textContent += " (#{remaining.hours}:#{minutes})"
     else
       @statusText.textContent = 'error'
       console.warn "Battery Status: invalid charge value: #{percentage}"
@@ -119,6 +122,10 @@ class BatteryStatusView extends HTMLDivElement
     else
       @statusText.setAttribute 'style', 'display: none;'
 
+  setShowRemainingTime: (showRemainingTime) ->
+    @showRemainingTime = showRemainingTime
+    @updateStatus()
+
   setOnlyShowInFullscreen: (onlyShowInFullscreen) ->
     if onlyShowInFullscreen
       @classList.add 'hide-outside-fullscreen'
@@ -130,6 +137,5 @@ class BatteryStatusView extends HTMLDivElement
       pollingInterval = Math.max(pollingInterval, 1)
       @pollingInterval = 1000 * pollingInterval
       @startPolling()
-
 
 module.exports = document.registerElement('battery-status', prototype: BatteryStatusView.prototype)
