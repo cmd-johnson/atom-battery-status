@@ -27,3 +27,6 @@
 
 ## 0.11.2 - Configurable polling interval
 * Added an option to configure the interval for polling the battery status in seconds
+
+## 0.11.3 - Display estimates on the remaining time
+* Added an option for displaying the estimated remaining time until the battery is (dis-)charged on macOS (enabled by default)
