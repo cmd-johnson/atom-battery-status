@@ -30,3 +30,6 @@
 
 ## 0.11.3 - Display estimates on the remaining time
 * Added an option for displaying the estimated remaining time until the battery is (dis-)charged on macOS (enabled by default)
+
+## 0.11.4 - Remaining time on linux systems
+* Update node-power-info to 1.0.0 to support displaying the remaining time on linux systems
