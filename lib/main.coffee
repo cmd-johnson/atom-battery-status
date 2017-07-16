@@ -1,5 +1,5 @@
 BatteryStatusView = require './battery-status-view'
-{CompositeDisposable} = require 'atom'
+{ CompositeDisposable } = require 'atom'
 
 module.exports = BatteryStatus =
   batteryStatusView: null
@@ -15,7 +15,7 @@ module.exports = BatteryStatus =
       order: 2
       type: 'boolean'
       default: true
-      description: 'Display the estimated remaining time until the battery is (dis-)charged (currently only available on macOS)'
+      description: 'Display the estimated remaining time until the battery is (dis-)charged'
     onlyShowWhileInFullscreen:
       order: 3
       type: 'boolean'

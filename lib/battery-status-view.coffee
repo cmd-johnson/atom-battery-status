@@ -53,28 +53,27 @@ class BatteryStatusView extends HTMLDivElement
 
   updateStatus: ->
     # fetch battery percentage and charge status and update the view
-    batteryStatus.getChargeStatus (batteryStats) =>
-      if batteryStats.length >= 1
-        batStats = batteryStats[0]
-        @updateStatusText batStats.powerLevel, batStats.remaining
-        @updateStatusIcon batStats.powerLevel, batStats.chargeStatus
+    batteryStatus.getDefault()
+      .then (provider) => provider.getBatteries()
+      .then (batteries) =>
+        console.dir(batteries)
+        if batteries.length > 0
+          @updateStatusText batteries[0]
+          @updateStatusIcon batteries[0]
 
-  updateStatusText: (percentage, remaining) ->
-    if percentage?
+  updateStatusText: (battery) ->
+    if battery.powerLevel?
       # display charge of the first battery in percent (no multi battery support
       # as of now)
-      @statusText.textContent = "#{percentage}%"
-      if @showRemainingTime && remaining? && remaining.hours? && remaining.minutes?
-        minutes = ("0" + remaining.minutes).substr(-2)
-        @statusText.textContent += " (#{remaining.hours}:#{minutes})"
+      @statusText.textContent = "#{battery.powerLevel}%"
+      if @showRemainingTime && battery.isTimeAvailable
+        remainingMinutes = ('0' + battery.remainingTimeMinutes).slice -2
+        @statusText.textContent += " (#{battery.remainingTimeHours}:#{remainingMinutes})"
     else
       @statusText.textContent = 'error'
-      console.warn "Battery Status: invalid charge value: #{percentage}"
+      console.warn "Battery Status: invalid charge value: #{battery.powerLevel}"
 
-  updateStatusIcon: (percentage, chargeStatus) ->
-    if !(chargeStatus?)
-      chargeStatus = 'unknown'
-
+  updateStatusIcon: (battery) ->
     # clear the class list of the status icon element and re-add basic style
     # classes
     @backIcon.className = ''
@@ -86,27 +85,27 @@ class BatteryStatusView extends HTMLDivElement
     # add style classes according to charge status
     iconClass = 'icon-battery-unknown';
 
-    if chargeStatus == 'charging' || chargeStatus == 'full'
+    if battery.chargeStatus == 'charging' || battery.chargeStatus == 'full'
       iconClass = 'icon-battery-charging'
-    else if chargeStatus == 'discharging'
+    else if battery.chargeStatus == 'discharging'
       iconClass = 'icon-battery'
 
     clip = 'none'
     statusClass = 'unknown'
 
-    if chargeStatus != 'unknown'
-      if percentage <= 5 && chargeStatus != 'charging'
+    if battery.chargeStatus != 'unknown'
+      if battery.powerLevel <= 5 && battery.chargeStatus != 'charging'
         iconClass = 'icon-battery-alert'
         statusClass = 'critical'
       else
-        if percentage <= 10
+        if battery.powerLevel <= 10
           statusClass = 'warning'
         else
           statusClass = 'normal'
 
         clipFull = 23
         clipEmpty = 86
-        clipTop = clipFull + ((100 - percentage) / 100 * (clipEmpty - clipFull))
+        clipTop = clipFull + ((100 - battery.powerLevel) / 100 * (clipEmpty - clipFull))
         clip = "inset(#{clipTop}% 0 0 0)"
 
     @statusIconContainer.classList.add statusClass
