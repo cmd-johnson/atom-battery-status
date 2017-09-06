@@ -29,6 +29,6 @@
     }
   },
   "dependencies": {
-    "node-power-info": "^1.0.1"
+    "node-power-info": "^1.0.2"
   }
 }
