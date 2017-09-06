@@ -33,3 +33,6 @@
 
 ## 0.11.4 - Remaining time on linux systems
 * Update node-power-info to 1.0.0 to support displaying the remaining time on linux systems
+
+## 0.11.5 - Minor fixes to remaining time calculation on linux
+* Update node-power-info to 1.0.1 to fix some time calculation issues on uevent systems
