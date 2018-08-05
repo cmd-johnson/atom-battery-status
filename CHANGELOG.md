@@ -45,3 +45,6 @@
 
 ## 0.11.8 - Add support for Windows system
 * Update node-power-info to 1.0.5 to benefit from the addition to the Battery Status API provider, which should work on most Windows systems
+
+## 0.11.9
+* Update node-power-info to 1.0.6 to fix the remaining time not being displayed correctly when remaining hours or minutes were 0
