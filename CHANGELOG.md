@@ -48,3 +48,6 @@
 
 ## 0.11.9
 * Update node-power-info to 1.0.6 to fix the remaining time not being displayed correctly when remaining hours or minutes were 0
+
+## 0.11.10
+* Remove console.dir statement from battery-status-view.coffee which somehow hid there from being removed after a debugging session
