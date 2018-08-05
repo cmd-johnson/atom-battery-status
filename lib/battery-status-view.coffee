@@ -56,7 +56,6 @@ class BatteryStatusView extends HTMLDivElement
     batteryStatus.getDefault()
       .then (provider) => provider.getBatteries()
       .then (batteries) =>
-        console.dir(batteries)
         if batteries.length > 0
           @updateStatusText batteries[0]
           @updateStatusIcon batteries[0]
