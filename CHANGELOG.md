@@ -40,5 +40,8 @@
 ## 0.11.6 - Minor fix to remaining time calculation on linux
 * Update node-power-info to 1.0.1 to fix some time calculation issues on uevent systems
 
-## 0.11.6 - Minor fix to remaining time calculation on linux
+## 0.11.7 - Minor fix to remaining time calculation on linux
 * Update node-power-info to 1.0.1 to fix handling the uevent edge case of currentPower being zero
+
+## 0.11.8 - Add support for Windows system
+* Update node-power-info to 1.0.5 to benefit from the addition to the Battery Status API provider, which should work on most Windows systems
