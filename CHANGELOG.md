@@ -51,3 +51,6 @@
 
 ## 0.11.10
 * Remove console.dir statement from battery-status-view.coffee which somehow hid there from being removed after a debugging session
+
+## 0.11.11
+* Fix battery percentage sometimes having decimal places
