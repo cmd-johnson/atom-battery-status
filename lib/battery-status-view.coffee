@@ -64,7 +64,7 @@ class BatteryStatusView extends HTMLDivElement
     if battery.powerLevel?
       # display charge of the first battery in percent (no multi battery support
       # as of now)
-      @statusText.textContent = "#{battery.powerLevel}%"
+      @statusText.textContent = "#{battery.powerLevel.toString().split('.')[0]}%"
       if @showRemainingTime && battery.isTimeAvailable
         remainingMinutes = ('0' + battery.remainingTimeMinutes).slice -2
         @statusText.textContent += " (#{battery.remainingTimeHours}:#{remainingMinutes})"
