@@ -9,6 +9,7 @@ class BatteryStatusView extends HTMLDivElement
   statusText: null
   showRemainingTime: true
   pollingInterval: 60000
+  errorReported: false
 
   initialize: (@statusBar) ->
     # set css classes for the root element
@@ -57,8 +58,19 @@ class BatteryStatusView extends HTMLDivElement
       .then (provider) => provider.getBatteries()
       .then (batteries) =>
         if batteries.length > 0
+          @errorReported = false
           @updateStatusText batteries[0]
           @updateStatusIcon batteries[0]
+        else if !@errorReported
+          atom.notifications.addError('No battery found', {
+            description: "The battery-status package was unable to get information about
+                your computer\'s battery. If you are running on a machine having a battery,
+                please report this issue to
+                [the node-power-info package](https://github.com/cmd-johnson/node-power-info/issues/new)",
+            dismissable: true
+          })
+          @errorReported = true
+
 
   updateStatusText: (battery) ->
     if battery.powerLevel?
